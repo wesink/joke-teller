@@ -29,14 +29,14 @@ function tellme(joke) {
 // Get Jokes from joke API
 async function getJokes() {
     let joke = '';
-    const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Dark,Pun?blacklistFlags=nsfw,racist,sexist';
+    const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Dark,Pun?blacklistFlags=nsfw,racist,sexist&type=single';
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
         if (data.setup) {
             joke = `${data.setup} ... ${data.deliver}`;
         } else {
-            joke = data.joke;
+            joke = `${data.joke}`;
         }
 
         // Text-to-Speech
